@@ -47,8 +47,7 @@ public OnIncomingPacket(playerid, packetid, BitStream:bs)
 }
 
 /*
-
-	Hooking fucktion and callback.
+	Hooking function and callback.
 */
 #if defined _ALS_OnIncomingPacket
 	#undef OnIncomingPacket
