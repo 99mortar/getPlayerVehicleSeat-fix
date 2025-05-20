@@ -30,7 +30,7 @@ stock GetPlayerVehicleSeat(playerid)
     if (!IsPlayerConnected(playerid) || !IsPlayerInAnyVehicle(playerid))
         return INVALID_SEAT_ID;
 
-    return g_playerVehicleSeat[playerid];
+    return g_playerVehicleSeat{playerid};
 }
 
 stock bool:IsSeatChangeTooFast(playerid)
@@ -49,7 +49,7 @@ public OnIncomingPacket(playerid, packetid, BitStream:bs)
     {
         case 0xC8:
         {
-            g_playerVehicleSeat[playerid] = 0;
+            g_playerVehicleSeat{playerid} = 0;
             g_lastSeatChangeTick[playerid] = GetTickCount();
             break;
         }
@@ -68,7 +68,7 @@ public OnIncomingPacket(playerid, packetid, BitStream:bs)
                     return false;
                 }
 
-                g_playerVehicleSeat[playerid] = newSeat;
+                g_playerVehicleSeat{playerid} = newSeat;
             }
             break;
         }
